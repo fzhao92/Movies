@@ -13,6 +13,10 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        OAMDbAPIClient.getMovie(name: "Batman") { (response) in
+            print("WOOOHOOOO!!!")
+            print(response)
+        }
     }
 
     override func didReceiveMemoryWarning() {

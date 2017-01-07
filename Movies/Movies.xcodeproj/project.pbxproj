@@ -15,6 +15,8 @@
 		3FF319A01E20CCC50096CC33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF3199E1E20CCC50096CC33 /* LaunchScreen.storyboard */; };
 		3FF319AB1E20CCC50096CC33 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319AA1E20CCC50096CC33 /* MoviesTests.swift */; };
 		3FF319B61E20CCC50096CC33 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319B51E20CCC50096CC33 /* MoviesUITests.swift */; };
+		3FF319C41E2146420096CC33 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C31E2146420096CC33 /* Secrets.swift */; };
+		3FF319C61E2147840096CC33 /* OAMDbAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		3FF319B11E20CCC50096CC33 /* MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF319B51E20CCC50096CC33 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		3FF319B71E20CCC50096CC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FF319C31E2146420096CC33 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAMDbAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				3FF3199E1E20CCC50096CC33 /* LaunchScreen.storyboard */,
 				3FF319A11E20CCC50096CC33 /* Info.plist */,
 				3FF319991E20CCC50096CC33 /* Movies.xcdatamodeld */,
+				3FF319C31E2146420096CC33 /* Secrets.swift */,
+				3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -263,7 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF319C61E2147840096CC33 /* OAMDbAPIClient.swift in Sources */,
 				3FF319951E20CCC50096CC33 /* SearchViewController.swift in Sources */,
+				3FF319C41E2146420096CC33 /* Secrets.swift in Sources */,
 				3FF3199B1E20CCC50096CC33 /* Movies.xcdatamodeld in Sources */,
 				3FF319931E20CCC50096CC33 /* AppDelegate.swift in Sources */,
 			);
