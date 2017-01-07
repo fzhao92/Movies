@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +40,42 @@
                     <view key="view" contentMode="scaleToFill" id="FL0-zw-PDS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MpS-Wt-h2p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yOK-d0-ZWw">
+                                <rect key="frame" x="16" y="44" width="343" height="574"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="45c-xH-x6g">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="3Ci-yi-pAP">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MpS-Wt-h2p" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="2JK-20-bM1"/>
+                            <constraint firstItem="yOK-d0-ZWw" firstAttribute="bottom" secondItem="CvH-fa-HXM" secondAttribute="top" id="DEh-pk-C7k"/>
+                            <constraint firstItem="yOK-d0-ZWw" firstAttribute="trailing" secondItem="FL0-zw-PDS" secondAttribute="trailingMargin" id="G79-Cj-2h8"/>
+                            <constraint firstItem="yOK-d0-ZWw" firstAttribute="top" secondItem="MpS-Wt-h2p" secondAttribute="bottom" id="h3S-6P-o2R"/>
+                            <constraint firstItem="MpS-Wt-h2p" firstAttribute="width" secondItem="FL0-zw-PDS" secondAttribute="width" id="i4A-mN-iO5"/>
+                            <constraint firstItem="yOK-d0-ZWw" firstAttribute="leading" secondItem="FL0-zw-PDS" secondAttribute="leadingMargin" id="pCx-Zg-p1G"/>
+                            <constraint firstItem="MpS-Wt-h2p" firstAttribute="top" secondItem="0oS-mY-Hjr" secondAttribute="bottom" constant="-20" id="rKn-WG-HcE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="DJG-cR-44h"/>
                 </viewController>
