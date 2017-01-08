@@ -10,12 +10,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    let shared = SearchResultsDataStore.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        OAMDbAPIClient.getMovie(name: "Batman") { (response) in
-            print("WOOOHOOOO!!!")
-            print(response)
+        shared.getMoviesByTitle(title: "Titanic") {
+            print("Number of movies found  \(self.shared.movies.count)")
         }
     }
 
