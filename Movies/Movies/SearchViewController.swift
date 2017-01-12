@@ -10,13 +10,16 @@ import UIKit
 
 class SearchViewController: UICollectionViewController {
 
-    let shared = SearchResultsDataStore.sharedInstance
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    fileprivate var searchViewModel = SearchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        shared.getMoviesByTitle(title: "Gladiator") {
-            print("Number of movies found  \(self.shared.movies.count)")
-        }
+//        shared.getMoviesByTitle(title: "Gladiator") {
+//            print("Number of movies found  \(self.shared.movies.count)")
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,5 +28,14 @@ class SearchViewController: UICollectionViewController {
     }
 
 
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchViewModel.getMoviesByTitle(title: searchBar.text!) {
+            print("search completed")
+        }
+    }
 }
 
