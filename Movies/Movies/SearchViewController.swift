@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UICollectionViewController {
 
     let shared = SearchResultsDataStore.sharedInstance
     override func viewDidLoad() {
