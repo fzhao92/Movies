@@ -18,8 +18,8 @@ class SearchResultsDataStore {
     func getMoviesByTitle(title: String, _ completion: @escaping () -> ()) {
         OAMDbAPIClient.getMovie(name: title) { (moviesJSON) in
             self.movies.removeAll()
-            let moviesJSON = moviesJSON["Search"] as! [JSON]
-            for dict in moviesJSON {
+            let moviesDict = moviesJSON["Search"] as! [JSON]
+            for dict in moviesDict {
                 let movie = Movie(dict: dict)
                 self.movies.append(movie)
             }

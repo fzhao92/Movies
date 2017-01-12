@@ -108,15 +108,15 @@
 			isa = PBXGroup;
 			children = (
 				3FF319921E20CCC50096CC33 /* AppDelegate.swift */,
-				3FF319941E20CCC50096CC33 /* SearchViewController.swift */,
+				3FF319CB1E22DB8D0096CC33 /* Views */,
 				3FF319961E20CCC50096CC33 /* Main.storyboard */,
 				3FF3199C1E20CCC50096CC33 /* Assets.xcassets */,
 				3FF3199E1E20CCC50096CC33 /* LaunchScreen.storyboard */,
 				3FF319A11E20CCC50096CC33 /* Info.plist */,
-				3FF319991E20CCC50096CC33 /* Movies.xcdatamodeld */,
+				3FF319CD1E22DBBB0096CC33 /* CoreData */,
 				3FF319C31E2146420096CC33 /* Secrets.swift */,
 				3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */,
-				3FF319C71E2166050096CC33 /* Movie.swift */,
+				3FF319CC1E22DBA80096CC33 /* Models */,
 				3FF319C91E22412F0096CC33 /* SearchResultsDataStore.swift */,
 			);
 			path = Movies;
@@ -138,6 +138,30 @@
 				3FF319B71E20CCC50096CC33 /* Info.plist */,
 			);
 			path = MoviesUITests;
+			sourceTree = "<group>";
+		};
+		3FF319CB1E22DB8D0096CC33 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FF319941E20CCC50096CC33 /* SearchViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3FF319CC1E22DBA80096CC33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FF319C71E2166050096CC33 /* Movie.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3FF319CD1E22DBBB0096CC33 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3FF319991E20CCC50096CC33 /* Movies.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

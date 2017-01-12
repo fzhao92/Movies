@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        shared.getMoviesByTitle(title: "Titanic") {
+        shared.getMoviesByTitle(title: "Gladiator") {
             print("Number of movies found  \(self.shared.movies.count)")
         }
     }
