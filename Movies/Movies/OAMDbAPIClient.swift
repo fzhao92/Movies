@@ -28,4 +28,23 @@ class OAMDbAPIClient {
         }
         task.resume()
     }
+    
+    static func getMovieByImdbID(id: String, with completion: @escaping (JSON) -> Void) -> Void {
+        let urlString = OMBDb.baseURL + "/?i=\(id)"
+        guard let url = URL(string: urlString) else { return }
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let jsonData = data {
+                do {
+                    let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as! JSON
+                    completion(jsonObject)
+                }
+                catch let error {
+                    print("Error creating json object: \(error)")
+                }
+            }
+        }
+        task.resume()
+    }
 }
