@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -39,6 +39,10 @@
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="hvA-6a-dU0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="moviePostImage" destination="R0N-Np-1T2" id="TT8-We-7GF"/>
+                <outlet property="title" destination="gad-sO-F5D" id="Gvz-Eq-Bc7"/>
+            </connections>
         </view>
     </objects>
 </document>
