@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F29CD0A1E27081B00733441 /* CustomMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F29CD091E27081B00733441 /* CustomMovieCell.xib */; };
 		3FF319931E20CCC50096CC33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319921E20CCC50096CC33 /* AppDelegate.swift */; };
 		3FF319951E20CCC50096CC33 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319941E20CCC50096CC33 /* SearchViewController.swift */; };
 		3FF319981E20CCC50096CC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF319961E20CCC50096CC33 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F29CD091E27081B00733441 /* CustomMovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMovieCell.xib; sourceTree = "<group>"; };
 		3FF3198F1E20CCC50096CC33 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF319921E20CCC50096CC33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF319941E20CCC50096CC33 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF319941E20CCC50096CC33 /* SearchViewController.swift */,
+				3F29CD091E27081B00733441 /* CustomMovieCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				3FF319A01E20CCC50096CC33 /* LaunchScreen.storyboard in Resources */,
 				3FF3199D1E20CCC50096CC33 /* Assets.xcassets in Resources */,
+				3F29CD0A1E27081B00733441 /* CustomMovieCell.xib in Resources */,
 				3FF319981E20CCC50096CC33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +556,7 @@
 				3FF319BC1E20CCC50096CC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FF319BD1E20CCC50096CC33 /* Build configuration list for PBXNativeTarget "MoviesTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +565,7 @@
 				3FF319BF1E20CCC50096CC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FF319C01E20CCC50096CC33 /* Build configuration list for PBXNativeTarget "MoviesUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +574,7 @@
 				3FF319C21E20CCC50096CC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
