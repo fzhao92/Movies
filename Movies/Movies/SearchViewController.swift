@@ -36,6 +36,7 @@ class SearchViewController: UICollectionViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchViewModel.getMoviesByTitle(title: searchBar.text!) {
             print("search completed")
         }
@@ -54,10 +55,13 @@ extension SearchViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! SearchCollectionViewCell
-        configureCell(cell: cell)
+        configureCell(cell: cell, indexPath: indexPath)
+        return cell
     }
     
-    func configureCell(cell: SearchCollectionViewCell) {
-
+    func configureCell(cell: SearchCollectionViewCell, indexPath: IndexPath) {
+        let movie = searchViewModel.movies[indexPath.row]
+        cell.title.text = movie.title
+        cell.moviePosterImage.image = movie.image
     }
 }

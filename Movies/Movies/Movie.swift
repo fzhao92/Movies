@@ -38,7 +38,10 @@ class Movie {
     }
     
     func loadImage(_ completion: @escaping (_ Movie: Movie, _ error: NSError?) -> Void) {
-        guard let url = URL(string: imageUrl) else { completion(self, nil) }
+        guard let url = URL(string: imageUrl) else {
+            completion(self, nil)
+            return
+        }
         let loadRequest = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: loadRequest, completionHandler: { (data, response, error) in

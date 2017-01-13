@@ -10,11 +10,7 @@ import Foundation
 
 class SearchViewModel {
     
-    private var movies: [Movie]
-    
-    init(searchResult: MovieSearchResult) {
-        self.movies = searchResult.searchResults
-    }
+    var movies: [Movie] = []
     
     func getMoviesByTitle(title: String, _ completion: @escaping () -> ()) {
         OAMDbAPIClient.getMovie(name: title) { (moviesJSON) in
@@ -28,7 +24,4 @@ class SearchViewModel {
         }
     }
     
-    func downloadPosterImage(<#parameters#>) -> <#return type#> {
-        
-    }
 }
