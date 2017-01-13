@@ -17,7 +17,7 @@ class SearchViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.register(UINib(nibName: "CustomSearchCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
+        collectionView?.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
         // Do any additional setup after loading the view, typically from a nib.
 //        shared.getMoviesByTitle(title: "Gladiator") {
 //            print("Number of movies found  \(self.shared.movies.count)")
@@ -28,6 +28,7 @@ class SearchViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 
 }
@@ -52,6 +53,11 @@ extension SearchViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! SearchCollectionViewCell
+        configureCell(cell: cell)
+    }
+    
+    func configureCell(cell: SearchCollectionViewCell) {
+
     }
 }
