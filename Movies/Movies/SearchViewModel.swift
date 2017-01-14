@@ -10,6 +10,7 @@ import Foundation
 
 class SearchViewModel {
     
+    
     var movies: [Movie] = []
     
     func getMoviesByTitle(title: String, _ completion: @escaping () -> ()) {

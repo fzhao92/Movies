@@ -25,22 +25,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wN0-Nq-AJT">
+                    <rect key="frame" x="88" y="114.5" width="24" height="25"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gad-sO-F5D" firstAttribute="height" secondItem="R0N-Np-1T2" secondAttribute="height" multiplier="0.1" id="2tT-OA-Hbs"/>
                 <constraint firstAttribute="trailing" secondItem="gad-sO-F5D" secondAttribute="trailing" constant="10" id="5vQ-fR-hW0"/>
+                <constraint firstItem="wN0-Nq-AJT" firstAttribute="height" secondItem="R0N-Np-1T2" secondAttribute="height" multiplier="0.1" id="7Dv-PZ-XHD"/>
+                <constraint firstItem="wN0-Nq-AJT" firstAttribute="width" secondItem="R0N-Np-1T2" secondAttribute="width" multiplier="0.1" id="9lT-cA-VRt"/>
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="bottom" secondItem="gad-sO-F5D" secondAttribute="top" constant="-10" id="GRJ-1a-OWo"/>
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Gtv-fp-E7K"/>
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="OTs-Fe-VWk"/>
                 <constraint firstAttribute="bottom" secondItem="gad-sO-F5D" secondAttribute="bottom" constant="10" id="TE0-Ex-0nm"/>
                 <constraint firstAttribute="trailing" secondItem="R0N-Np-1T2" secondAttribute="trailing" constant="-20" id="XHc-oy-wqh"/>
+                <constraint firstItem="wN0-Nq-AJT" firstAttribute="centerX" secondItem="R0N-Np-1T2" secondAttribute="centerX" id="ebh-8A-Qky"/>
                 <constraint firstItem="gad-sO-F5D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="gei-GV-cQb"/>
+                <constraint firstItem="wN0-Nq-AJT" firstAttribute="centerY" secondItem="R0N-Np-1T2" secondAttribute="centerY" id="hAr-ag-6Uw"/>
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="hvA-6a-dU0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="moviePostImage" destination="R0N-Np-1T2" id="TT8-We-7GF"/>
+                <outlet property="activityIndicator" destination="wN0-Nq-AJT" id="Jx8-on-eXI"/>
+                <outlet property="moviePosterImage" destination="R0N-Np-1T2" id="qQ0-2B-y3M"/>
                 <outlet property="title" destination="gad-sO-F5D" id="Gvz-Eq-Bc7"/>
             </connections>
         </view>

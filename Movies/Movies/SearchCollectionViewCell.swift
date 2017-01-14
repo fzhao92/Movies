@@ -9,8 +9,16 @@
 import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var moviePosterImage: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
 
 }

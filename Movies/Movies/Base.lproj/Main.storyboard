@@ -98,7 +98,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="DJG-cR-44h"/>
                     <connections>
-                        <outlet property="collectionView" destination="yOK-d0-ZWw" id="5ib-dC-GIf"/>
+                        <outlet property="collectionView" destination="yOK-d0-ZWw" id="dQW-MP-WBS"/>
                         <outlet property="searchBar" destination="MpS-Wt-h2p" id="Sxm-h0-t27"/>
                     </connections>
                 </viewController>
@@ -122,7 +122,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYm-0e-Umd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-604" y="-373"/>
+            <point key="canvasLocation" x="-913" y="-373"/>
         </scene>
     </scenes>
 </document>

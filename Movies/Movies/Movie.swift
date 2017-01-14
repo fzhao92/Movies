@@ -13,15 +13,7 @@ typealias JSON = [String: Any]
 class Movie {
     var title: String
     var year: String
-    var imageUrl: String {
-        didSet {
-            loadImage { (self, error) in
-                if error != nil {
-                    //display error image placeholder
-                }
-            }
-        }
-    }
+    var imageUrl: String
     var imdbID: String
     var image: UIImage?
     
@@ -39,6 +31,7 @@ class Movie {
     
     func loadImage(_ completion: @escaping (_ Movie: Movie, _ error: NSError?) -> Void) {
         guard let url = URL(string: imageUrl) else {
+            print("Image url fuckked")
             completion(self, nil)
             return
         }
@@ -46,6 +39,7 @@ class Movie {
         
         URLSession.shared.dataTask(with: loadRequest, completionHandler: { (data, response, error) in
             if let error = error {
+                print("error downloading image!!!")
                 DispatchQueue.main.async {
                     completion(self, error as NSError?)
                 }
@@ -53,6 +47,7 @@ class Movie {
             }
             
             guard let data = data else {
+                print("image data is nil!!!")
                 DispatchQueue.main.async {
                     completion(self, nil)
                 }
@@ -61,6 +56,7 @@ class Movie {
             
             let returnedImage = UIImage(data: data)
             self.image = returnedImage
+            print("Image success!!!")
             DispatchQueue.main.async {
                 completion(self, nil)
             }
