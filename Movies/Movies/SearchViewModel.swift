@@ -10,10 +10,8 @@ import Foundation
 
 class SearchViewModel {
     
-    static let shared = SearchViewModel()
     var movies: [Movie] = []
     
-    private init() { }
     func getMoviesByTitle(title: String, _ completion: @escaping (Bool) -> ()) {
         OAMDbAPIClient.getMovie(name: title) { (moviesJSON) in
             self.movies.removeAll()

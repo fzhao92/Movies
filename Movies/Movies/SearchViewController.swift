@@ -12,14 +12,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    // MARK: - Properties
     
+    // MARK: - Properties
     fileprivate let reuseIdentifier = "FlickrCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
-    fileprivate var searchViewModel = SearchViewModel.shared
+    fileprivate var searchViewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +49,7 @@ extension SearchViewController {
                 }
             }
             else {
+                print("No results found for query")
                 //show no results ui error notification
             }
         }
@@ -78,9 +78,9 @@ extension SearchViewController: UICollectionViewDataSource {
         let movie = searchViewModel.movies[indexPath.row]
         cell.title.text = movie.title
         movie.loadImage { (movie, error) in
+            cell.hideActivityIndicator()
             if error == nil {
                 cell.moviePosterImage.image = movie.image
-                cell.hideActivityIndicator()
             } else {
                 print("Error loading image!!!!")
                 if let error = error {
