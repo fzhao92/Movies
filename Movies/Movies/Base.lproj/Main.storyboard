@@ -69,10 +69,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MpS-Wt-h2p">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yOK-d0-ZWw">
                                 <rect key="frame" x="16" y="44" width="343" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,9 +80,17 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-2y-Jhh">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MpS-Wt-h2p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oxP-2y-Jhh" firstAttribute="centerY" secondItem="FL0-zw-PDS" secondAttribute="centerY" id="02F-1w-Yi1"/>
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="2JK-20-bM1"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="bottom" secondItem="CvH-fa-HXM" secondAttribute="top" id="DEh-pk-C7k"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="trailing" secondItem="FL0-zw-PDS" secondAttribute="trailingMargin" id="G79-Cj-2h8"/>
@@ -94,10 +98,12 @@
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="width" secondItem="FL0-zw-PDS" secondAttribute="width" id="i4A-mN-iO5"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="leading" secondItem="FL0-zw-PDS" secondAttribute="leadingMargin" id="pCx-Zg-p1G"/>
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="top" secondItem="0oS-mY-Hjr" secondAttribute="bottom" constant="-20" id="rKn-WG-HcE"/>
+                            <constraint firstItem="oxP-2y-Jhh" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="xBp-mt-bOC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="DJG-cR-44h"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="oxP-2y-Jhh" id="me2-kn-UNu"/>
                         <outlet property="collectionView" destination="yOK-d0-ZWw" id="dQW-MP-WBS"/>
                         <outlet property="searchBar" destination="MpS-Wt-h2p" id="Sxm-h0-t27"/>
                     </connections>

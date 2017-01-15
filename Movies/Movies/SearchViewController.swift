@@ -13,15 +13,17 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: - Properties
     
     fileprivate let reuseIdentifier = "FlickrCell"
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
-    fileprivate var searchViewModel = SearchViewModel()
+    fileprivate var searchViewModel = SearchViewModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = true
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
@@ -37,9 +39,19 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 extension SearchViewController {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchViewModel.getMoviesByTitle(title: searchBar.text!) {
-            print("search completed")
-            self.collectionView.reloadData()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        searchViewModel.getMoviesByTitle(title: searchBar.text!) { (hasResults) in
+            self.activityIndicator.stopAnimating()
+            if hasResults {
+                print("search completed")
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            else {
+                //show no results ui error notification
+            }
         }
     }
 }
@@ -71,7 +83,9 @@ extension SearchViewController: UICollectionViewDataSource {
                 cell.hideActivityIndicator()
             } else {
                 print("Error loading image!!!!")
-                print(error)
+                if let error = error {
+                    print(error)
+                }
                 return
             }
         }

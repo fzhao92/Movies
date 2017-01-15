@@ -10,18 +10,24 @@ import Foundation
 
 class SearchViewModel {
     
-    
+    static let shared = SearchViewModel()
     var movies: [Movie] = []
     
-    func getMoviesByTitle(title: String, _ completion: @escaping () -> ()) {
+    private init() { }
+    func getMoviesByTitle(title: String, _ completion: @escaping (Bool) -> ()) {
         OAMDbAPIClient.getMovie(name: title) { (moviesJSON) in
             self.movies.removeAll()
-            let moviesDict = moviesJSON["Search"] as! [JSON]
-            for dict in moviesDict {
-                let movie = Movie(dict: dict)
-                self.movies.append(movie)
+            print("in get movies by title func")
+            if moviesJSON["Response"] as! String == "True"{
+                let moviesDict = moviesJSON["Search"] as! [JSON]
+                for dict in moviesDict {
+                    let movie = Movie(dict: dict)
+                    self.movies.append(movie)
+                }
+                print("size of movies array is \(self.movies.count)")
+                completion(true)
             }
-            completion()
+            completion(false)
         }
     }
     
