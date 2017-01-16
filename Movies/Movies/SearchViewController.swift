@@ -16,7 +16,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     
     // MARK: - Properties
     fileprivate let reuseIdentifier = "movieCell"
-    fileprivate let sectionInsets = UIEdgeInsets(top: 25.0, left: 30.0, bottom: 25.0, right: 30.0)
+    fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
     
@@ -101,8 +101,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
-//        let widthPerItem = availableWidth / itemsPerRow
-        let widthPerItem: CGFloat = 160
+        let widthPerItem = availableWidth / itemsPerRow
 
         print("available width is \(availableWidth)")
         print("width for item is \(widthPerItem)")
@@ -118,6 +117,9 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets.left
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
 }
 
 //extension SearchViewController: SearchLayoutDelegate {

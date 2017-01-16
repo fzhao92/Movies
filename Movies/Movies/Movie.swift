@@ -40,6 +40,7 @@ class Movie {
         URLSession.shared.dataTask(with: loadRequest, completionHandler: { (data, response, error) in
             if let error = error {
                 print("error downloading image!!!")
+                print("error image url = \(self.imageUrl)")
                 DispatchQueue.main.async {
                     completion(self, error as NSError?)
                 }
@@ -56,7 +57,6 @@ class Movie {
             
             let returnedImage = UIImage(data: data)
             self.image = returnedImage
-            print("Image success!!!")
             DispatchQueue.main.async {
                 completion(self, nil)
             }
