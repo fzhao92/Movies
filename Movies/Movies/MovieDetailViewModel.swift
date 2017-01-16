@@ -17,6 +17,7 @@ class MovieDetailViewModel {
     let genre: String
     let director: String
     let actors: String
+    let plot: String
     var containsLeo = false
     
     init(movieDetail: MovieDetail) {
@@ -27,6 +28,7 @@ class MovieDetailViewModel {
         self.genre = "Genre: \(movieDetail.genre)"
         self.director = "Director: \(movieDetail.director)"
         self.actors = "Actors: \(movieDetail.actors)"
+        self.plot = movieDetail.plot
         hasLeo(movieDetail: movieDetail)
     }
     
