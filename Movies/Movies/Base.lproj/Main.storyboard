@@ -118,7 +118,7 @@
                                             <outlet property="activityIndicator" destination="q6T-eo-lLd" id="PjS-XU-qxf"/>
                                             <outlet property="moviePosterImage" destination="dyo-Fs-0fq" id="sLo-Xe-H2Z"/>
                                             <outlet property="title" destination="Hky-vJ-DQH" id="tHU-wL-E8w"/>
-                                            <segue destination="Qs1-TQ-FHZ" kind="presentation" id="kws-Nu-j9M"/>
+                                            <segue destination="Qs1-TQ-FHZ" kind="presentation" identifier="showMovieDetail" id="kws-Nu-j9M"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

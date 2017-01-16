@@ -24,7 +24,6 @@
 		3FF319C41E2146420096CC33 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C31E2146420096CC33 /* Secrets.swift */; };
 		3FF319C61E2147840096CC33 /* OAMDbAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */; };
 		3FF319C81E2166050096CC33 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C71E2166050096CC33 /* Movie.swift */; };
-		3FF319CA1E22412F0096CC33 /* SearchResultsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF319C91E22412F0096CC33 /* SearchResultsDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +67,6 @@
 		3FF319C31E2146420096CC33 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAMDbAPIClient.swift; sourceTree = "<group>"; };
 		3FF319C71E2166050096CC33 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		3FF319C91E22412F0096CC33 /* SearchResultsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +136,6 @@
 				3FF319C31E2146420096CC33 /* Secrets.swift */,
 				3FF319C51E2147840096CC33 /* OAMDbAPIClient.swift */,
 				3FF319CC1E22DBA80096CC33 /* Models */,
-				3FF319C91E22412F0096CC33 /* SearchResultsDataStore.swift */,
 				3F29CD0F1E28188B00733441 /* View Models */,
 			);
 			path = Movies;
@@ -325,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF319CA1E22412F0096CC33 /* SearchResultsDataStore.swift in Sources */,
 				3FF319C61E2147840096CC33 /* OAMDbAPIClient.swift in Sources */,
 				3FF319951E20CCC50096CC33 /* SearchViewController.swift in Sources */,
 				3FF319C81E2166050096CC33 /* Movie.swift in Sources */,

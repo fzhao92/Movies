@@ -12,7 +12,9 @@ class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailStackView: UIStackView!
-        @IBOutlet weak var plotLabel: UILabel!
+    @IBOutlet weak var plotLabel: UILabel!
+    
+    var movieDetailViewModel: MovieDetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

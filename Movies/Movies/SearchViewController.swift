@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     
     // MARK: - Properties
     fileprivate let reuseIdentifier = "movieCell"
+    fileprivate let segueIdentifier = "showMovieDetail"
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
@@ -118,6 +119,15 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets.left
     }
     
+}
+
+extension SearchViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier {
+            let destVC = sender as! MovieDetailViewController
+            destVC.movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(dict: [:]))
+        }
+    }
 }
 
 //extension SearchViewController: SearchLayoutDelegate {
