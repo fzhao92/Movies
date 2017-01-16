@@ -15,15 +15,8 @@ struct MovieDetail {
     var released: String
     var genre: String
     var director: String
-    var actors: String {
-        didSet {
-            if actors.lowercased().contains("leonardo dicaprio"){
-                containsLeo = true
-            }
-        }
-    }
+    var actors: String
     var plot: String
-    var containsLeo: Bool = false
     
     init(dict: JSON) {
         self.title = dict["Title"] as! String
@@ -35,4 +28,5 @@ struct MovieDetail {
         self.actors = dict["Actors"] as! String
         self.plot = dict["Plot"] as! String
     }
+    
 }
