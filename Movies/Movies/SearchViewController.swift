@@ -85,6 +85,7 @@ extension SearchViewController: UICollectionViewDataSource {
                 cell.moviePosterImage.image = movie.image
             } else {
                 print("Error loading image!!!!")
+                cell.moviePosterImage.image = UIImage(named: "no-image-placeholder")
                 if let error = error {
                     print(error)
                 }

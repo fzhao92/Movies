@@ -14,6 +14,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func showActivityIndicator() {
+        activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
     }
     
