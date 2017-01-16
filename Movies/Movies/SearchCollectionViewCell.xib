@@ -13,20 +13,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R0N-Np-1T2">
-                    <rect key="frame" x="-20" y="0.0" width="240" height="254"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R0N-Np-1T2">
+                    <rect key="frame" x="-20" y="0.0" width="415" height="587.5"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gad-sO-F5D">
-                    <rect key="frame" x="10" y="264" width="180" height="26"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gad-sO-F5D">
+                    <rect key="frame" x="10" y="597.5" width="355" height="59.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wN0-Nq-AJT">
-                    <rect key="frame" x="88" y="114.5" width="24" height="25"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wN0-Nq-AJT">
+                    <rect key="frame" x="167" y="264.5" width="41.5" height="58.5"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,12 +45,29 @@
                 <constraint firstItem="wN0-Nq-AJT" firstAttribute="centerY" secondItem="R0N-Np-1T2" secondAttribute="centerY" id="hAr-ag-6Uw"/>
                 <constraint firstItem="R0N-Np-1T2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="hvA-6a-dU0"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="GRJ-1a-OWo"/>
+                    <exclude reference="Gtv-fp-E7K"/>
+                    <exclude reference="OTs-Fe-VWk"/>
+                    <exclude reference="XHc-oy-wqh"/>
+                    <exclude reference="hvA-6a-dU0"/>
+                    <exclude reference="7Dv-PZ-XHD"/>
+                    <exclude reference="9lT-cA-VRt"/>
+                    <exclude reference="ebh-8A-Qky"/>
+                    <exclude reference="hAr-ag-6Uw"/>
+                    <exclude reference="2tT-OA-Hbs"/>
+                    <exclude reference="5vQ-fR-hW0"/>
+                    <exclude reference="TE0-Ex-0nm"/>
+                    <exclude reference="gei-GV-cQb"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="activityIndicator" destination="wN0-Nq-AJT" id="Jx8-on-eXI"/>
                 <outlet property="moviePosterImage" destination="R0N-Np-1T2" id="qQ0-2B-y3M"/>
                 <outlet property="title" destination="gad-sO-F5D" id="Gvz-Eq-Bc7"/>
             </connections>
+            <point key="canvasLocation" x="-128" y="38"/>
         </view>
     </objects>
 </document>

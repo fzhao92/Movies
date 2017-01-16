@@ -20,11 +20,5 @@ class SearchCollectionViewCell: UICollectionViewCell {
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.autoresizingMask.insert(.flexibleHeight)
-        contentView.autoresizingMask.insert(.flexibleWidth)
-    }
 
 }

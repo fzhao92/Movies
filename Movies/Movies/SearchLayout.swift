@@ -65,4 +65,22 @@ class SearchLayout: UICollectionViewLayout {
             }
         }
     }
+    
+    override var collectionViewContentSize: CGSize {
+        get {
+            return CGSize(width: contentWidth, height: contentHeight)
+        }
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        var layoutAttributes = [UICollectionViewLayoutAttributes]()
+        
+        for attributes in cache {
+            if attributes.frame.intersects(rect) {
+                layoutAttributes.append(attributes)
+            }
+        }
+        return layoutAttributes
+    }
+    
 }

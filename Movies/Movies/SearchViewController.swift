@@ -15,18 +15,19 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-    fileprivate let reuseIdentifier = "FlickrCell"
-    fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    fileprivate let reuseIdentifier = "movieCell"
+    fileprivate let sectionInsets = UIEdgeInsets(top: 25.0, left: 30.0, bottom: 25.0, right: 30.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
+        activityIndicator.hidesWhenStopped = true
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
-        collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
+//        collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +69,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as! SearchCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCollectionViewCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell
     }
@@ -77,6 +78,7 @@ extension SearchViewController: UICollectionViewDataSource {
         cell.showActivityIndicator()
         let movie = searchViewModel.movies[indexPath.row]
         cell.title.text = movie.title
+        cell.backgroundColor = UIColor.red
         movie.loadImage { (movie, error) in
             cell.hideActivityIndicator()
             if error == nil {
@@ -95,11 +97,17 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("size for item at called!")
+
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: widthPerItem)
+//        let widthPerItem = availableWidth / itemsPerRow
+        let widthPerItem: CGFloat = 160
+
+        print("available width is \(availableWidth)")
+        print("width for item is \(widthPerItem)")
+
+        return CGSize(width: widthPerItem, height: widthPerItem * 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -111,3 +119,14 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+//extension SearchViewController: SearchLayoutDelegate {
+//    
+//    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth: CGFloat) -> CGFloat {
+//
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth: CGFloat) -> CGFloat {
+//
+//    }
+//}
