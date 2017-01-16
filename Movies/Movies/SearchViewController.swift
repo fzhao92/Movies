@@ -60,7 +60,6 @@ extension SearchViewController {
                     self.collectionView.isHidden = true
                     self.noSearchResultsLabel.isHidden = false
                 }
-                //show no results ui error notification
             }
         }
     }
@@ -73,7 +72,6 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("movies count= \(searchViewModel.movies.count)")
         return searchViewModel.movies.count
     }
     
@@ -93,7 +91,6 @@ extension SearchViewController: UICollectionViewDataSource {
             if error == nil {
                 cell.moviePosterImage.image = movie.image
             } else {
-                print("Error loading image!!!!")
                 cell.moviePosterImage.image = UIImage(named: "no-image-placeholder")
                 if let error = error {
                     print(error)

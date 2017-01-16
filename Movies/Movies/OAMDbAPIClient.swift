@@ -12,7 +12,6 @@ class OAMDbAPIClient {
     
     static func getMovie(name: String, with completion: @escaping (JSON) -> Void) -> Void {
         let urlString = OMBDb.baseURL + "/?s=\(name.replacingOccurrences(of: " ", with: "+"))"
-        print("URL string is \(urlString)")
         guard let url = URL(string: urlString) else { return }
         let session = URLSession.shared
         let request = URLRequest(url: url)
