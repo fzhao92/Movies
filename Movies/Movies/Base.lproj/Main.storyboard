@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -128,13 +129,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results found..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDC-SL-epG" userLabel="No Results Label">
+                                <rect key="frame" x="37" y="183.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GDC-SL-epG" secondAttribute="height" multiplier="1:1" id="hv3-D3-WHP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oxP-2y-Jhh" firstAttribute="centerY" secondItem="FL0-zw-PDS" secondAttribute="centerY" id="02F-1w-Yi1"/>
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="2JK-20-bM1"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="bottom" secondItem="CvH-fa-HXM" secondAttribute="top" id="DEh-pk-C7k"/>
+                            <constraint firstItem="GDC-SL-epG" firstAttribute="width" secondItem="FL0-zw-PDS" secondAttribute="width" multiplier="0.8" id="ELx-MH-Z8x"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="trailing" secondItem="FL0-zw-PDS" secondAttribute="trailing" id="G79-Cj-2h8"/>
+                            <constraint firstItem="GDC-SL-epG" firstAttribute="centerY" secondItem="FL0-zw-PDS" secondAttribute="centerY" id="HZN-hS-f5i"/>
+                            <constraint firstItem="GDC-SL-epG" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="bD0-8u-yGu"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="top" secondItem="MpS-Wt-h2p" secondAttribute="bottom" id="h3S-6P-o2R"/>
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="width" secondItem="FL0-zw-PDS" secondAttribute="width" id="i4A-mN-iO5"/>
                             <constraint firstItem="yOK-d0-ZWw" firstAttribute="leading" secondItem="FL0-zw-PDS" secondAttribute="leading" id="pCx-Zg-p1G"/>
@@ -144,6 +157,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="DJG-cR-44h"/>
                     <connections>
+                        <outlet property="NoSearchResultsLabel" destination="GDC-SL-epG" id="lNR-bQ-k0V"/>
                         <outlet property="activityIndicator" destination="oxP-2y-Jhh" id="me2-kn-UNu"/>
                         <outlet property="collectionView" destination="yOK-d0-ZWw" id="dQW-MP-WBS"/>
                         <outlet property="searchBar" destination="MpS-Wt-h2p" id="Sxm-h0-t27"/>

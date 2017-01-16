@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noSearchResultsLabel: UILabel!
     
     // MARK: - Properties
     fileprivate let reuseIdentifier = "movieCell"
@@ -23,11 +24,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
+        noSearchResultsLabel.isHidden = true
         activityIndicator.hidesWhenStopped = true
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
-//        collectionView.register(UINib(nibName: "SearchCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,15 +43,23 @@ extension SearchViewController {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         searchViewModel.getMoviesByTitle(title: searchBar.text!) { (hasResults) in
-            self.activityIndicator.stopAnimating()
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
             if hasResults {
                 print("search completed")
                 DispatchQueue.main.async {
+                    self.collectionView.isHidden = false
+                    self.noSearchResultsLabel.isHidden = true
                     self.collectionView.reloadData()
                 }
             }
             else {
                 print("No results found for query")
+                DispatchQueue.main.async {
+                    self.collectionView.isHidden = true
+                    self.noSearchResultsLabel.isHidden = false
+                }
                 //show no results ui error notification
             }
         }
@@ -98,15 +107,9 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("size for item at called!")
-
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-
-        print("available width is \(availableWidth)")
-        print("width for item is \(widthPerItem)")
-
         return CGSize(width: widthPerItem, height: widthPerItem * 2)
     }
     
@@ -118,9 +121,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         return sectionInsets.left
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
 }
 
 //extension SearchViewController: SearchLayoutDelegate {

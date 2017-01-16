@@ -25,7 +25,9 @@ class SearchViewModel {
                 print("size of movies array is \(self.movies.count)")
                 completion(true)
             }
-            completion(false)
+            else {
+                completion(false)
+            }
         }
     }
     
