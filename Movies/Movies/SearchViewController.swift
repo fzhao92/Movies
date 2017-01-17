@@ -83,9 +83,9 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(movieID: searchViewModel.movies[indexPath.row].imdbID))
-        print("did select cell")
-        performSegue(withIdentifier: segueIdentifier, sender: movieDetailViewModel)
+        print("in did select item")
+        let movieID = searchViewModel.movies[indexPath.row].imdbID
+        performSegue(withIdentifier: segueIdentifier, sender: movieID)
     }
 
 }
@@ -114,7 +114,7 @@ extension SearchViewController {
         if segue.identifier == segueIdentifier {
             print("in prepare segue")
             let destVC = segue.destination as! MovieDetailViewController
-            destVC.movieDetailViewModel = sender as? MovieDetailViewModel
+            destVC.movieID = sender as? String
         }
     }
 }

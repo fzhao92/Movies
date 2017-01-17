@@ -20,24 +20,15 @@ class MovieDetail {
     var plot: String = ""
     private var dict: JSON = [:]
     
-    init(movieID: String) {
-        getDetailsObject(id: movieID) { (dict) in
-            if dict["Response"] as! String == "True" {
-                self.title = dict["Title"] as! String
-                self.year = dict["Year"] as! String
-                self.rated = dict["Rated"] as! String
-                self.released = dict["Released"] as! String
-                self.genre = dict["Genre"] as! String
-                self.director = dict["Director"] as! String
-                self.actors = dict["Actors"] as! String
-                self.plot = dict["Plot"] as! String
-//                self.dict = dict
-            }
-        }
-//        DispatchQueue(label: "getDetails", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil).sync {
-//            
-//        }
-    
+    init(dict: JSON) {
+        self.title = dict["Title"] as! String
+        self.year = dict["Year"] as! String
+        self.rated = dict["Rated"] as! String
+        self.released = dict["Released"] as! String
+        self.genre = dict["Genre"] as! String
+        self.director = dict["Director"] as! String
+        self.actors = dict["Actors"] as! String
+        self.plot = dict["Plot"] as! String
     }
     
     func getDetailsObject(id: String, completion: @escaping (JSON) -> ()) {
