@@ -38,6 +38,7 @@ class OAMDbAPIClient {
             if let jsonData = data {
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as! JSON
+                    print(jsonObject)
                     completion(jsonObject)
                 }
                 catch let error {

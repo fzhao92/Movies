@@ -21,7 +21,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
-    var selectedMovieIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +83,9 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedMovieIndex = indexPath.row
-        print("Just selected cell at index \(selectedMovieIndex)")
+        let movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(movieID: searchViewModel.movies[indexPath.row].imdbID))
+        print("did select cell")
+        performSegue(withIdentifier: segueIdentifier, sender: movieDetailViewModel)
     }
 
 }
@@ -112,9 +112,9 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
+            print("in prepare segue")
             let destVC = segue.destination as! MovieDetailViewController
-            guard let index = selectedMovieIndex else { return }
-            destVC.movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(movieID: searchViewModel.movies[index].imdbID))
+            destVC.movieDetailViewModel = sender as? MovieDetailViewModel
         }
     }
 }

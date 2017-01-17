@@ -10,24 +10,17 @@ import Foundation
 
 class MovieDetail {
     
-    var title: String
-    var year: String
-    var rated: String
-    var released: String
-    var genre: String
-    var director: String
-    var actors: String
-    var plot: String
-
+    var title: String = ""
+    var year: String = ""
+    var rated: String = ""
+    var released: String = ""
+    var genre: String = ""
+    var director: String = ""
+    var actors: String = ""
+    var plot: String = ""
+    private var dict: JSON = [:]
+    
     init(movieID: String) {
-        self.title = ""
-        self.year = ""
-        self.rated = ""
-        self.released = ""
-        self.genre = ""
-        self.director = ""
-        self.actors = ""
-        self.plot = ""
         getDetailsObject(id: movieID) { (dict) in
             if dict["Response"] as! String == "True" {
                 self.title = dict["Title"] as! String
@@ -38,8 +31,13 @@ class MovieDetail {
                 self.director = dict["Director"] as! String
                 self.actors = dict["Actors"] as! String
                 self.plot = dict["Plot"] as! String
+//                self.dict = dict
             }
         }
+//        DispatchQueue(label: "getDetails", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil).sync {
+//            
+//        }
+    
     }
     
     func getDetailsObject(id: String, completion: @escaping (JSON) -> ()) {

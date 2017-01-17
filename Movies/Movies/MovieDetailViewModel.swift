@@ -33,7 +33,7 @@ class MovieDetailViewModel {
     }
     
     func hasLeo(movieDetail: MovieDetail) {
-        if movieDetail.actors.lowercased().contains("leonardo dicaprio") {
+        if (movieDetail.actors.lowercased().contains("leonardo dicaprio")) {
             containsLeo = true
         }
     }

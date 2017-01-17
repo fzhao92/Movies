@@ -163,9 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				3FF319941E20CCC50096CC33 /* SearchViewController.swift */,
+				3F6EEDDE1E2D63C000187055 /* MovieDetailViewController.swift */,
 				3F29CD0B1E270E0800733441 /* SearchCollectionViewCell.swift */,
 				3F6EEDDC1E2BF5F600187055 /* SearchLayout.swift */,
-				3F6EEDDE1E2D63C000187055 /* MovieDetailViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

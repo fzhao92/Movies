@@ -19,8 +19,10 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let movieDetailViewModel = movieDetailViewModel {
-            print("movie titel is \(movieDetailViewModel.title)")
+            print("movie title is \(movieDetailViewModel.title)")
             titleLabel.text = movieDetailViewModel.title
+        } else {
+            print("movie detail view model is nil")
         }
         // Do any additional setup after loading the view.
     }
