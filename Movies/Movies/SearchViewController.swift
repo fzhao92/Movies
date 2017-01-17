@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
+    var selectedMovieIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,24 +83,11 @@ extension SearchViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func configureCell(cell: SearchCollectionViewCell, indexPath: IndexPath) {
-        cell.showActivityIndicator()
-        let movie = searchViewModel.movies[indexPath.row]
-        cell.title.text = movie.title
-        cell.backgroundColor = UIColor.red
-        movie.loadImage { (movie, error) in
-            cell.hideActivityIndicator()
-            if error == nil {
-                cell.moviePosterImage.image = movie.image
-            } else {
-                cell.moviePosterImage.image = UIImage(named: "no-image-placeholder")
-                if let error = error {
-                    print(error)
-                }
-                return
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedMovieIndex = indexPath.row
+        print("Just selected cell at index \(selectedMovieIndex)")
     }
+
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
@@ -124,10 +112,36 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
-            let destVC = sender as! MovieDetailViewController
-            destVC.movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(dict: [:]))
+            let destVC = segue.destination as! MovieDetailViewController
+            guard let index = selectedMovieIndex else { return }
+            destVC.movieDetailViewModel = MovieDetailViewModel(movieDetail: MovieDetail(movieID: searchViewModel.movies[index].imdbID))
         }
     }
+}
+
+//MARK: - Helpers
+
+extension SearchViewController {
+    
+    func configureCell(cell: SearchCollectionViewCell, indexPath: IndexPath) {
+        cell.showActivityIndicator()
+        let movie = searchViewModel.movies[indexPath.row]
+        cell.title.text = movie.title
+        cell.backgroundColor = UIColor.red
+        movie.loadImage { (movie, error) in
+            cell.hideActivityIndicator()
+            if error == nil {
+                cell.moviePosterImage.image = movie.image
+            } else {
+                cell.moviePosterImage.image = UIImage(named: "no-image-placeholder")
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+        }
+    }
+    
 }
 
 //extension SearchViewController: SearchLayoutDelegate {
