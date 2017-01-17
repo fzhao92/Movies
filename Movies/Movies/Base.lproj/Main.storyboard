@@ -82,7 +82,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="mzp-gl-JGw" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
-                                        <rect key="frame" x="71" y="0.0" width="234" height="341"/>
+                                        <rect key="frame" x="70.5" y="0.0" width="234" height="341"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="234" height="341"/>
@@ -118,7 +118,6 @@
                                             <outlet property="activityIndicator" destination="q6T-eo-lLd" id="PjS-XU-qxf"/>
                                             <outlet property="moviePosterImage" destination="dyo-Fs-0fq" id="sLo-Xe-H2Z"/>
                                             <outlet property="title" destination="Hky-vJ-DQH" id="tHU-wL-E8w"/>
-                                            <segue destination="Qs1-TQ-FHZ" kind="presentation" identifier="showMovieDetail" id="kws-Nu-j9M"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -162,11 +161,12 @@
                         <outlet property="activityIndicator" destination="oxP-2y-Jhh" id="me2-kn-UNu"/>
                         <outlet property="collectionView" destination="yOK-d0-ZWw" id="dQW-MP-WBS"/>
                         <outlet property="searchBar" destination="MpS-Wt-h2p" id="Sxm-h0-t27"/>
+                        <segue destination="Qs1-TQ-FHZ" kind="show" identifier="showMovieDetail" id="2Tj-gt-tL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJN-Yj-fU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127.2" y="-374.66266866566718"/>
+            <point key="canvasLocation" x="2" y="-395"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="J4S-dv-6mE">
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YD-li-w9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829.60000000000002" y="-374.66266866566718"/>
+            <point key="canvasLocation" x="806" y="-395"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1zh-Eq-uPY">
