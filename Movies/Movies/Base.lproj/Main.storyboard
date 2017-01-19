@@ -180,22 +180,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZqD-z1-BXU">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLn-OK-xDY" userLabel="title">
                                 <rect key="frame" x="26" y="107.5" width="343" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqr-ry-i2x" userLabel="plot">
-                                <rect key="frame" x="26" y="422.5" width="343" height="200"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtX-th-wki">
-                                <rect key="frame" x="273.5" y="74" width="93.5" height="33.5"/>
-                                <state key="normal" title="Save Movie"/>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Wps-3E-OYC">
                                 <rect key="frame" x="36" y="237.5" width="343" height="165"/>
                                 <subviews>
@@ -237,6 +230,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqr-ry-i2x" userLabel="plot">
+                                <rect key="frame" x="26" y="422.5" width="343" height="200"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtX-th-wki">
+                                <rect key="frame" x="273.5" y="74" width="93.5" height="33.5"/>
+                                <state key="normal" title="Save Movie"/>
+                                <connections>
+                                    <action selector="saveMovieButtonPressed:" destination="Qs1-TQ-FHZ" eventType="touchUpInside" id="5di-Nj-mw6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -247,6 +253,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="WtX-th-wki" secondAttribute="trailingMargin" id="Swd-uj-EUO"/>
                             <constraint firstItem="WtX-th-wki" firstAttribute="height" secondItem="P7Q-eX-L4s" secondAttribute="height" multiplier="0.05" id="VYb-eq-SNL"/>
                             <constraint firstItem="kLn-OK-xDY" firstAttribute="top" secondItem="WtX-th-wki" secondAttribute="bottom" id="alt-57-gge"/>
+                            <constraint firstItem="ZqD-z1-BXU" firstAttribute="centerY" secondItem="P7Q-eX-L4s" secondAttribute="centerY" id="f51-Bo-TDz"/>
                             <constraint firstItem="fqr-ry-i2x" firstAttribute="trailing" secondItem="P7Q-eX-L4s" secondAttribute="trailingMargin" constant="10" id="gLh-4J-BLN"/>
                             <constraint firstItem="fqr-ry-i2x" firstAttribute="leading" secondItem="P7Q-eX-L4s" secondAttribute="leadingMargin" constant="10" id="gNk-gK-uNk"/>
                             <constraint firstItem="WtX-th-wki" firstAttribute="width" secondItem="P7Q-eX-L4s" secondAttribute="width" multiplier="0.25" id="jPI-Wx-NCA"/>
@@ -255,11 +262,14 @@
                             <constraint firstItem="WtX-th-wki" firstAttribute="top" secondItem="6oB-T9-VTg" secondAttribute="bottom" constant="10" id="sCI-7d-AHj"/>
                             <constraint firstItem="Wps-3E-OYC" firstAttribute="trailing" secondItem="P7Q-eX-L4s" secondAttribute="trailingMargin" constant="20" id="tW9-CC-VLi"/>
                             <constraint firstItem="kLn-OK-xDY" firstAttribute="leading" secondItem="P7Q-eX-L4s" secondAttribute="leadingMargin" constant="10" id="yNu-ch-lht"/>
+                            <constraint firstItem="ZqD-z1-BXU" firstAttribute="centerX" secondItem="P7Q-eX-L4s" secondAttribute="centerX" id="zyl-Hm-JtC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZqD-z1-BXU" id="rgL-fz-J0S"/>
                         <outlet property="detailStackView" destination="Wps-3E-OYC" id="ztG-E3-GKx"/>
                         <outlet property="plotLabel" destination="fqr-ry-i2x" id="GnS-HP-m9x"/>
+                        <outlet property="saveMovieButton" destination="WtX-th-wki" id="a7F-8c-iKd"/>
                         <outlet property="titleLabel" destination="kLn-OK-xDY" id="tIC-ju-Ggh"/>
                     </connections>
                 </viewController>
