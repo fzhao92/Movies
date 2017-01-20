@@ -11,6 +11,8 @@ import CoreData
 class CoreDataStack {
     
     // MARK: - Core Data stack
+    static let sharedInstance = CoreDataStack()
+    private init() {}
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*

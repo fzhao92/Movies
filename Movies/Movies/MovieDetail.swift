@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class MovieDetail {
     
@@ -18,7 +19,7 @@ class MovieDetail {
     var director: String = ""
     var actors: String = ""
     var plot: String = ""
-    private var dict: JSON = [:]
+    let coreDataStack = CoreDataStack.sharedInstance
     
     init(dict: JSON) {
         self.title = dict["Title"] as! String
@@ -35,6 +36,13 @@ class MovieDetail {
         OAMDbAPIClient.getMovieByImdbID(id: id) { (detailJSON) in
             completion(detailJSON)
         }
+    }
+    
+    func persistToCoreData(id: String) {
+        let context = coreDataStack.persistentContainer.viewContext
+        let savedMovie = SavedMovie(context: context)
+        savedMovie.imdbID = id
+        savedMovie.name = title
     }
     
 }
