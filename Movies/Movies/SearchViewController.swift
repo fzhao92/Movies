@@ -83,7 +83,6 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("in did select item")
         let movieID = searchViewModel.movies[indexPath.row].imdbID
         performSegue(withIdentifier: segueIdentifier, sender: movieID)
     }
@@ -112,7 +111,6 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
-            print("in prepare segue")
             let destVC = segue.destination as! MovieDetailViewController
             destVC.movieID = sender as? String
         }
