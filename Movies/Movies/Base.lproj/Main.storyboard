@@ -291,6 +291,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Saved Movies" id="4TJ-Kb-QvR"/>
+                    <connections>
+                        <segue destination="Qs1-TQ-FHZ" kind="show" identifier="showMovieDetailFromSaved" id="scO-UV-eJX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuX-xI-n4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,4 +319,7 @@
             <point key="canvasLocation" x="-5.5999999999999996" y="366.56671664167919"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="scO-UV-eJX"/>
+    </inferredMetricsTieBreakers>
 </document>
