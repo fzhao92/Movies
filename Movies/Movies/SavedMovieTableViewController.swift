@@ -38,12 +38,20 @@ class SavedMovieTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "savedMovieCell", for: indexPath)
-        print("cell for row at called")
         cell.textLabel?.text = savedMovieViewModel.savedMovies[indexPath.row].name
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            savedMovieViewModel.deleteMovieFromCoreData(index: indexPath.row)
+            tableView.reloadData()
+        }
+    }
     /*
     // MARK: - Navigation
 

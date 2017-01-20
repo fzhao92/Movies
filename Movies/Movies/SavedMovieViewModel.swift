@@ -13,17 +13,28 @@ import CoreData
 class SavedMovieViewModel {
     
     var savedMovies: [SavedMovie] = [SavedMovie]()
+    let managedContext = CoreDataStack.sharedInstance.persistentContainer.viewContext
 
     //MARK: - Core data functions
 
     func fetchData() {
-        let managedContext = CoreDataStack.sharedInstance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<SavedMovie> = SavedMovie.fetchRequest()
         do {
             savedMovies = try managedContext.fetch(fetchRequest)
-            print("Number of items in saved movies = \(savedMovies.count)")
         } catch {
             print("Error executing fetch request")
         }
+    }
+    
+    func deleteMovieFromCoreData(index: Int) {
+        let movieToDelete = savedMovies[index]
+        managedContext.delete(movieToDelete)
+        do {
+            try managedContext.save()
+        } catch {
+            print("Error trying to save context after delete")
+            return
+        }
+        savedMovies.remove(at: index)
     }
 }
