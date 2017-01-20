@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class MovieDetailViewModel {
     
@@ -35,6 +36,18 @@ class MovieDetailViewModel {
     func hasLeo(movieDetail: MovieDetail) {
         if (movieDetail.actors.lowercased().contains("leonardo dicaprio")) {
             containsLeo = true
+        }
+    }
+    
+    func persistToCoreData(id: String) {
+        let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
+        let savedMovie = SavedMovie(context: context)
+        savedMovie.imdbID = id
+        savedMovie.name = title
+        do {
+            try context.save()
+        } catch {
+            print("save context error")
         }
     }
     

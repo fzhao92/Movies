@@ -17,6 +17,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var movieID: String?
+    var movieDetailViewModel: MovieDetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,12 @@ class MovieDetailViewController: UIViewController {
     }
     
     @IBAction func saveMovieButtonPressed(_ sender: UIButton) {
-        
+        if let movieID = movieID, let movieDetailViewModel = movieDetailViewModel {
+            movieDetailViewModel.persistToCoreData(id: movieID)
+            print("Persisted to core data")
+        } else {
+            print("movie id or detail view model is nil")
+        }
     }
 }
 
@@ -51,6 +57,7 @@ extension MovieDetailViewController {
     func populateDetailLabels() {
         startActivityIndicator()
         createDetailViewModel(movieID: movieID!) { (movieDetailViewModel) in
+            self.movieDetailViewModel = movieDetailViewModel
             DispatchQueue.main.async {
                 self.stopActivityIndicator()
                 self.titleLabel.text = movieDetailViewModel.title
