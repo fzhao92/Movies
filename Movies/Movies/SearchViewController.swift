@@ -68,7 +68,8 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCollectionViewCell
-        configureCell(cell: cell, indexPath: indexPath)
+        cell.movie = searchViewModel.movies[indexPath.row]
+//        configureCell(cell: cell, indexPath: indexPath)
         return cell
     }
     
@@ -105,31 +106,6 @@ extension SearchViewController {
             destVC.movieID = sender as? String
         }
     }
-}
-
-//MARK: - Helpers
-
-extension SearchViewController {
-    
-    func configureCell(cell: SearchCollectionViewCell, indexPath: IndexPath) {
-        cell.showActivityIndicator()
-        let movie = searchViewModel.movies[indexPath.row]
-        cell.title.text = movie.title
-        cell.backgroundColor = UIColor.red
-        movie.loadImage { (movie, error) in
-            cell.hideActivityIndicator()
-            if error == nil {
-                cell.moviePosterImage.image = movie.image
-            } else {
-                cell.moviePosterImage.image = UIImage(named: "no-image-placeholder")
-                if let error = error {
-                    print(error)
-                }
-                return
-            }
-        }
-    }
-    
 }
 
 //TODO: - Impl for custom collectionview layout

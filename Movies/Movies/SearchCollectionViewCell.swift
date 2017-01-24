@@ -13,6 +13,26 @@ class SearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var movie: Movie! {
+        didSet {
+            showActivityIndicator()
+            title.text = movie.title
+            movie.loadImage({ (movie, error) in
+                if error == nil {
+                    self.moviePosterImage.image = movie.image
+                } else {
+                    self.moviePosterImage.image = UIImage(named: "no-image-placeholder")
+                    if let error = error {
+                        print(error)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.hideActivityIndicator()
+                }
+            })
+        }
+    }
+    
     func showActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
@@ -21,5 +41,5 @@ class SearchCollectionViewCell: UICollectionViewCell {
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
     }
-
+    
 }
