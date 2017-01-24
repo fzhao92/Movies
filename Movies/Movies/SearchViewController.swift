@@ -42,18 +42,12 @@ extension SearchViewController {
         searchViewModel.getMoviesByTitle(title: searchBar.text!) { (hasResults) in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-            }
-            if hasResults {
-                print("search completed")
-                DispatchQueue.main.async {
+                if hasResults {
                     self.collectionView.isHidden = false
                     self.noSearchResultsLabel.isHidden = true
                     self.collectionView.reloadData()
                 }
-            }
-            else {
-                print("No results found for query")
-                DispatchQueue.main.async {
+                else {
                     self.collectionView.isHidden = true
                     self.noSearchResultsLabel.isHidden = false
                 }
