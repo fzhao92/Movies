@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="apr-el-jSF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="apr-el-jSF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yOK-d0-ZWw">
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.33222416043281555" green="0.78569996356964111" blue="0.68649947643280029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Nrv-cG-X7w">
                                     <size key="itemSize" width="234" height="341"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -35,7 +35,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="mzp-gl-JGw" customClass="SearchCollectionViewCell" customModule="Movies" customModuleProvider="target">
-                                        <rect key="frame" x="71" y="0.0" width="234" height="341"/>
+                                        <rect key="frame" x="70.5" y="0.0" width="234" height="341"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="234" height="341"/>
@@ -55,6 +55,7 @@
                                                 </activityIndicatorView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.36235716938972473" green="0.45022550225257874" blue="0.49411717057228088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="Hky-vJ-DQH" firstAttribute="trailing" secondItem="mzp-gl-JGw" secondAttribute="trailingMargin" id="01R-T1-LFm"/>
                                             <constraint firstItem="Hky-vJ-DQH" firstAttribute="leading" secondItem="mzp-gl-JGw" secondAttribute="leadingMargin" id="0Ae-3e-d3J"/>
@@ -92,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.33222416043281555" green="0.78569996356964111" blue="0.68649947643280029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="oxP-2y-Jhh" firstAttribute="centerY" secondItem="FL0-zw-PDS" secondAttribute="centerY" id="02F-1w-Yi1"/>
                             <constraint firstItem="MpS-Wt-h2p" firstAttribute="centerX" secondItem="FL0-zw-PDS" secondAttribute="centerX" id="2JK-20-bM1"/>
@@ -197,7 +198,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.33222416043281555" green="0.78569996356964111" blue="0.68649947643280029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Wps-3E-OYC" firstAttribute="top" secondItem="kLn-OK-xDY" secondAttribute="bottom" constant="30" id="GBt-t9-mhy"/>
                             <constraint firstItem="fqr-ry-i2x" firstAttribute="top" secondItem="Wps-3E-OYC" secondAttribute="bottom" constant="20" id="IDR-J4-LDf"/>
@@ -274,15 +275,17 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="f5L-Ej-nwt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.33222416043281555" green="0.78569996356964111" blue="0.68649947643280029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.33222416043281555" green="0.78569996356964111" blue="0.68649947643280029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedMovieCell" id="EG4-gC-jgk">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EG4-gC-jgk" id="51i-wQ-Hde">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.36235716938972473" green="0.45022550225257874" blue="0.49411717057228088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
