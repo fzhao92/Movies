@@ -24,10 +24,6 @@ class MovieDetailViewController: UIViewController {
         populateDetailLabels()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func saveMovieButtonPressed(_ sender: UIButton) {
         if let movieID = movieID, let movieDetailViewModel = movieDetailViewModel {
             movieDetailViewModel.persistToCoreData(id: movieID)

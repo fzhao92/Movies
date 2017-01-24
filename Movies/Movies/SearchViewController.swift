@@ -31,10 +31,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         collectionView.delegate = self
         searchBar.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
 }
 
@@ -141,6 +137,8 @@ extension SearchViewController {
     }
     
 }
+
+//TODO: - Impl for custom collectionview layout
 
 //extension SearchViewController: SearchLayoutDelegate {
 //    

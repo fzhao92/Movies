@@ -6,6 +6,8 @@
 //  Copyright © 2017 Forrest Zhao. All rights reserved.
 //
 
+//TODO: - Use this class for custom collectionview layout
+
 import UIKit
 
 protocol SearchLayoutDelegate {
