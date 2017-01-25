@@ -18,7 +18,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     // MARK: - Properties
     fileprivate let reuseIdentifier = "movieCell"
     fileprivate let segueIdentifier = "showMovieDetail"
-    fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    fileprivate let sectionInsets = UIEdgeInsets(top: -20.0, left: 20.0, bottom: -20.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     fileprivate var searchViewModel = SearchViewModel()
     
@@ -69,7 +69,8 @@ extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SearchCollectionViewCell
         cell.movie = searchViewModel.movies[indexPath.row]
-//        configureCell(cell: cell, indexPath: indexPath)
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 6
         return cell
     }
     
